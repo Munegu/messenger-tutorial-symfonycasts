@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4aac21ae-dd66-4d3b-8f31-262ff137e30e" name="Default Changelist" comment="" />
+    <list default="true" id="4aac21ae-dd66-4d3b-8f31-262ff137e30e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Message/AddPonkaToImage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Message/DeleteImagePost.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MessageHandler/AddPonkaToImageHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MessageHandler/DeleteImagePostHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ImagePostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImagePostController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -103,6 +113,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1kQKyBU0Nm0KxYhhCAqcROdZbVb" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -111,10 +124,16 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Message" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Message" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -125,11 +144,25 @@
       <option name="presentableId" value="Default" />
       <updated>1605627626393</updated>
       <workItem from="1605627627466" duration="2187000" />
+      <workItem from="1605629899582" duration="168000" />
+      <workItem from="1605689971980" duration="1970000" />
     </task>
+    <task id="LOCAL-00001" summary="First commit">
+      <created>1605629964674</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605629964675</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="521" y="334" key="#Composer" timestamp="1605627633604">
@@ -140,6 +173,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605627746262" />
+    <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1605692058009">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605692058009" />
+    <state x="178" y="50" key="CommitChangelistDialog2" timestamp="1605629964104">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="178" y="50" key="CommitChangelistDialog2/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605629964104" />
     <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1605628713924">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -156,5 +197,13 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605628713923" />
+    <state x="296" y="180" key="NewPhpClassDialog" timestamp="1605691915502">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="296" y="180" key="NewPhpClassDialog/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605691915502" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1605629968898">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605629968898" />
   </component>
 </project>
