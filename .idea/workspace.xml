@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4aac21ae-dd66-4d3b-8f31-262ff137e30e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/config/messenger-worker.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/test/messenger.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Message/Event/ImagePostDeletedEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MessageHandler/Event/RemoveFileWhenImagePostDeleted.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/messenger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/messenger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ImagePostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImagePostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Message/AddPonkaToImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message/Command/AddPonkaToImage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Message/DeleteImagePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message/Command/DeleteImagePost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Message/DeletePhotoFile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageHandler/AddPonkaToImageHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageHandler/Command/AddPonkaToImageHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageHandler/DeleteImagePostHandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/MessageHandler/Command/DeleteImagePostHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageHandler/DeletePhotoFileHandler.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +144,10 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/MessageHandler/Command" />
+      <recent name="$PROJECT_DIR$/src/Message/Command" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/config/packages/test" />
       <recent name="$PROJECT_DIR$/src/Message" />
@@ -167,7 +178,7 @@
       <workItem from="1605696691948" duration="724000" />
       <workItem from="1605703437229" duration="8344000" />
       <workItem from="1605776859562" duration="3640000" />
-      <workItem from="1605791680737" duration="2467000" />
+      <workItem from="1605791680737" duration="5792000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1605629964674</created>
@@ -204,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605781154593</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="First commit">
+      <created>1605794656320</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605794656320</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,14 +246,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605627746262" />
-    <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1605712020521">
+    <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1605796959793">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605712020521" />
-    <state x="178" y="50" key="CommitChangelistDialog2" timestamp="1605781154243">
+    <state x="525" y="136" key="#com.intellij.ide.util.MemberChooser/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605796959793" />
+    <state x="178" y="50" key="CommitChangelistDialog2" timestamp="1605794656071">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="178" y="50" key="CommitChangelistDialog2/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605781154243" />
+    <state x="178" y="50" key="CommitChangelistDialog2/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605794656071" />
     <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1605628713924">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -252,18 +270,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605628713923" />
-    <state x="296" y="180" key="NewPhpClassDialog" timestamp="1605778400489">
+    <state x="296" y="180" key="NewPhpClassDialog" timestamp="1605796904704">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="296" y="180" key="NewPhpClassDialog/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605778400489" />
+    <state x="296" y="180" key="NewPhpClassDialog/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605796904704" />
     <state x="229" y="86" key="SettingsEditor" timestamp="1605780275877">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="229" y="86" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605780009997" />
     <state x="229" y="86" key="SettingsEditor/1440.25.1920.1055/0.0.1440.900@0.0.1440.900" timestamp="1605780275877" />
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1605781159169">
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2" timestamp="1605794659636">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="187" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605781159169" />
+    <state x="320" y="187" key="Vcs.Push.Dialog.v2/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1605794659636" />
   </component>
 </project>
