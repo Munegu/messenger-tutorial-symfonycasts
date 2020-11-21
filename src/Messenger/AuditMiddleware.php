@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Messenger;
-
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Messenger\Envelope;
@@ -13,13 +11,8 @@ use Symfony\Component\Messenger\Stamp\SentStamp;
 
 class AuditMiddleware implements MiddlewareInterface
 {
-
     private $logger;
 
-    /**
-     * AuditMiddleware constructor.
-     * @param LoggerInterface $messengerAuditLogger
-     */
     public function __construct(LoggerInterface $messengerAuditLogger)
     {
         $this->logger = $messengerAuditLogger;
@@ -27,13 +20,11 @@ class AuditMiddleware implements MiddlewareInterface
 
     public function handle(Envelope $envelope, StackInterface $stack): Envelope
     {
-        if (null === $envelope->last(UniqueIdStamp::class)){
+        if (null === $envelope->last(UniqueIdStamp::class)) {
             $envelope = $envelope->with(new UniqueIdStamp());
         }
 
-        /**
-         * @var UniqueIdStamp $stamp
-         */
+        /** @var UniqueIdStamp $stamp */
         $stamp = $envelope->last(UniqueIdStamp::class);
 
         $context = [
@@ -41,17 +32,17 @@ class AuditMiddleware implements MiddlewareInterface
             'class' => get_class($envelope->getMessage())
         ];
 
+
         $envelope = $stack->next()->handle($envelope, $stack);
 
-        if ($envelope->last(ReceivedStamp::class)){
+        if ($envelope->last(ReceivedStamp::class)) {
             $this->logger->info('[{id}] Received {class}', $context);
-        }elseif ($envelope->last(SentStamp::class)){
+        } elseif ($envelope->last(SentStamp::class)) {
             $this->logger->info('[{id}] Sent {class}', $context);
-        }
-        else{
+        } else {
             $this->logger->info('[{id}] Handling sync {class}', $context);
         }
 
-       return $envelope;
+        return $envelope;
     }
 }

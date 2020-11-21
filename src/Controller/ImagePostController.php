@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ImagePost;
 use App\Message\Command\AddPonkaToImage;
 use App\Message\Command\DeleteImagePost;
+use App\Message\Command\LogEmoji;
 use App\Repository\ImagePostRepository;
 use App\Photo\PhotoFileManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -16,6 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Stamp\DelayStamp;
+use Symfony\Component\Messenger\Transport\AmqpExt\AmqpStamp;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -60,22 +62,22 @@ class ImagePostController extends AbstractController
         $entityManager->persist($imagePost);
         $entityManager->flush();
 
-
         $message = new AddPonkaToImage($imagePost->getId());
-        $enveloppe = new Envelope($message, [
-           // new DelayStamp(500)
+        $envelope = new Envelope($message, [
+            new DelayStamp(1000),
+            // pretend we want to route this message via a different
+            // routing key than its transport uses by default
+            new AmqpStamp('normal')
         ]);
-        $messageBus->dispatch($enveloppe);
+        $messageBus->dispatch($envelope);
 
+        //$messageBus->dispatch(new LogEmoji(2));
 
         return $this->toJson($imagePost, 201);
     }
 
     /**
      * @Route("/api/images/{id}", methods="DELETE")
-     * @param ImagePost $imagePost
-     * @param MessageBusInterface $messageBus
-     * @return Response
      */
     public function delete(ImagePost $imagePost, MessageBusInterface $messageBus)
     {

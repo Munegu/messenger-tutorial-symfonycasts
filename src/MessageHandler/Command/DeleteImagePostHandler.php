@@ -1,11 +1,10 @@
 <?php
 
-
 namespace App\MessageHandler\Command;
-
 
 use App\Message\Command\DeleteImagePost;
 use App\Message\Event\ImagePostDeletedEvent;
+use App\Photo\PhotoFileManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Symfony\Component\Messenger\Handler\MessageSubscriberInterface;
@@ -13,33 +12,19 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 class DeleteImagePostHandler implements MessageSubscriberInterface
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-    /**
-     * @var MessageBusInterface
-     */
     private $eventBus;
+    private $entityManager;
 
-
-    /**
-     * DeleteImagePostHandler constructor.
-     * @param MessageBusInterface $eventBus
-     * @param EntityManagerInterface $entityManager
-     */
     public function __construct(MessageBusInterface $eventBus, EntityManagerInterface $entityManager)
     {
         $this->eventBus = $eventBus;
         $this->entityManager = $entityManager;
     }
 
-    public function __invoke($deleteImagePost)
+    public function __invoke(DeleteImagePost $deleteImagePost)
     {
         $imagePost = $deleteImagePost->getImagePost();
-
         $filename = $imagePost->getFilename();
-
 
         $this->entityManager->remove($imagePost);
         $this->entityManager->flush();
@@ -51,11 +36,13 @@ class DeleteImagePostHandler implements MessageSubscriberInterface
     {
         yield DeleteImagePost::class => [
             'method' => '__invoke',
+            // priority vs other handlers once message is handled
+            // but unless you use priority transports... the message
+            // will still be handled in the order it was received
             'priority' => 10,
-//            'from_transport' => 'async'
-        ]
-        ;
+            // unnecessary: useful if a message has multiple handlers
+            // and you want to "send" each handler to a separate transport
+            //'from_transport' => 'async'
+        ];
     }
-
-
 }
