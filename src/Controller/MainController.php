@@ -12,6 +12,8 @@ class MainController extends AbstractController
 {
     /**
      * @Route("/")
+     * @param MessageBusInterface $queryBus
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function homepage(MessageBusInterface $queryBus)
     {

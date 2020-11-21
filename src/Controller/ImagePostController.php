@@ -27,6 +27,8 @@ class ImagePostController extends AbstractController
 {
     /**
      * @Route("/api/images", methods="GET")
+     * @param ImagePostRepository $repository
+     * @return JsonResponse
      */
     public function list(ImagePostRepository $repository)
     {
@@ -39,6 +41,13 @@ class ImagePostController extends AbstractController
 
     /**
      * @Route("/api/images", methods="POST")
+     * @param Request $request
+     * @param ValidatorInterface $validator
+     * @param PhotoFileManager $photoManager
+     * @param EntityManagerInterface $entityManager
+     * @param MessageBusInterface $messageBus
+     * @return JsonResponse
+     * @throws \Exception
      */
     public function create(Request $request, ValidatorInterface $validator, PhotoFileManager $photoManager, EntityManagerInterface $entityManager, MessageBusInterface $messageBus)
     {
@@ -78,6 +87,9 @@ class ImagePostController extends AbstractController
 
     /**
      * @Route("/api/images/{id}", methods="DELETE")
+     * @param ImagePost $imagePost
+     * @param MessageBusInterface $messageBus
+     * @return Response
      */
     public function delete(ImagePost $imagePost, MessageBusInterface $messageBus)
     {
